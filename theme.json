@@ -1,0 +1,21 @@
+{
+    
+    "#sidebar": {
+        "colours": {
+            "dark_bg": "#1d1f22",
+            "normal_bg": "#000000"
+        }
+    },
+
+    "label": {
+        "font": {
+            "name": "trebuchetms",
+            "size": "24",
+            "bold": "1",
+            "italic": "0"
+        },
+        "colours": {
+            "normal_text": "#fffcfc"
+        }
+    }
+}
