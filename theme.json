@@ -7,7 +7,7 @@
         }
     },
 
-    "label": {
+    "#title": {
         "font": {
             "name": "trebuchetms",
             "size": "24",
@@ -16,6 +16,18 @@
         },
         "colours": {
             "normal_text": "#fffcfc"
+        }
+    },
+
+    "label": {
+        "font": {
+            "name": "trebuchetms",
+            "size": "20",
+            "bold": "0",
+            "italic": "0"
+        },
+        "colours": {
+            "normal_text": "#7c7c7c"
         }
     }
 }

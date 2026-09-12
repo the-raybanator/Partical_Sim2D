@@ -2,6 +2,7 @@ import pygame   # this is the "pygame-ce" version
 import pygame_gui
 from sys import exit
 import time
+from widgets import *
 
 pygame.init()   # initialize pygame
 
@@ -62,11 +63,37 @@ title = pygame_gui.elements.UILabel(relative_rect=layout,
                                     text="Particle Simulator 2D",
                                     manager=manager,
                                     container=frame,
+                                    object_id="#title",
                                     anchors={
                                         "centerx": "centerx",
                                         "top":"top",
                                     }
 
+)
+
+layout = pygame.Rect(0, 50, 120, 30)
+
+mass = pygame_gui.elements.UILabel(relative_rect=layout,
+                                    text="Mass",
+                                    manager=manager,
+                                    container=frame,
+                                    anchors={
+                                        "left": "left",
+                                        "right": "left",
+                                        "top":"top",
+                                    }
+
+)
+
+layout = pygame.Rect(-200, 50, 200, 30)
+slider = pygame_gui.elements.UIHorizontalSlider(
+    relative_rect=layout,
+    start_value=50,
+    value_range=(0, 100),
+    manager=manager,
+    click_increment=5.0,
+    anchors={"left":"right",
+             "top":"top"}
 )
 
 layout = pygame.Rect(0, 0, 120, 30)
@@ -116,6 +143,12 @@ while is_running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             is_running = False
+
+        if event.type == pygame_gui.UI_HORIZONTAL_SLIDER_MOVED:
+            if event.ui_element == slider:
+                # 3. Save the value live
+                saved_slider_value = event.value
+                print(f"Live Value: {saved_slider_value}")
 
         if event.type == pygame_gui.UI_BUTTON_PRESSED:
             if event.ui_element == hello_button:
